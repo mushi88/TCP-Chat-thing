@@ -1,8 +1,7 @@
 import socket
-import threading
 
 class Connect():
-	def __init__(self, Port=2345, IP="localhost"):
+	def __init__(self, Port=2345, IP="localhost", Buffer=10240):
 		sock=socket.socket(AF_INET, SOCK_STREAM)
 		self.sock=sock
 		try:
@@ -19,4 +18,10 @@ class Connect():
 			
 		self.sock.send(bytes(Value, "utf-8"))
 	
-	def Recive(self)
+	def Recive(self):
+		try:
+			Data=str(self.sock.recv(10240), "utf-8")
+			return Data
+		except:
+			return "Failed to recieve data."
+	
