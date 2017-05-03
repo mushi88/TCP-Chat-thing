@@ -40,6 +40,14 @@ class Window(Frame):
         def Lan_UI(self):
                 self.LanUI.pack(fill=BOTH, expand=1)
                 self.UpdateStatus(self.Lan_Status, "Searching for servers on LAN...")
+		
+		PortScanner=Connection.PortScan()
+		Ports=PortScanner.Go()
+		
+		for x in Ports:
+			self.UpdateStatus(self.Lan_Servers, "Found server on port {}.".format(Ports[x]))
+			
+		self.UpdateStatus(self.Lan_Status, "Found {} servers.".format(len(Ports))
 
         def UpdateStatus(self, Txt, New):
                 Txt.config(state=NORMAL)
