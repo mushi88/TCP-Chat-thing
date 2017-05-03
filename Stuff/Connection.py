@@ -29,7 +29,7 @@ class PortScan:
 	def __init__(self, HostIP="localhost"):
 		self.HostIP=HostIP
 	
-	def Go(self)
+	def Go(self):
 		threads=[]
 		output={}
 		ports=[]
@@ -58,6 +58,6 @@ class PortScan:
             PortScan.connect((IP, x))
             output[x]=str(x)
         except:
-            outut[x]=None
+            output[x]=None
         
 	
