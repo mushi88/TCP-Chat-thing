@@ -5,7 +5,6 @@ import threading
 class Window(Frame):
         def __init__(self, master=None):
                 Frame.__init__(self, master)
-                self.root=root
                 self.master=master
                 self.Load_UI()
                 self.Mode=None
