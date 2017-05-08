@@ -15,7 +15,7 @@ class Window(Frame):
         def Load_UI(self):
                 self.MenuBar=Menu(self)
                 self.ConnectMenu=Menu(self.MenuBar,tearoff=0)
-                self.ConnectMenu.add_command(label="Connect", command=self.Lan_UI)
+                self.ConnectMenu.add_command(label="Lan", command=self.Lan_UI)
 
                 self.MenuBar.add_cascade(label="Connect", menu=self.ConnectMenu)
 
