@@ -46,8 +46,9 @@ class Window(Frame):
                 PortScanner=Connection.PortScan()
                 Ports=PortScanner.Go()
                 
-                for x in Ports:
-                    self.UpdateStatus(self.Lan_Servers, "Found server on port {}.".format(x))
+                for x in range(len(Ports)):
+                    self.UpdateStatus(self.Lan_Servers, "Found server on port {}.".format(Ports[x]))
+                    button=Button(self.Lan_Servers
                     
                 self.UpdateStatus(self.Lan_Status, "Found {} servers.".format(len(Ports)))
 
