@@ -26,9 +26,9 @@ class Window(Frame):
                 self.LanUI=Label(self)
                 self.LanUI.pack(fill=BOTH, expand=1)
 
-                self.Lan_Servers=Text(self.LanUI)
+                self.Lan_Servers=Frame(self.LanUI)
                 self.Lan_Servers.pack(fill=BOTH, expand=1)
-                self.Lan_Servers.config(state=DISABLED)
+                #self.Lan_Servers.config(state=DISABLED)
 
                 self.Lan_Status=Text(self.LanUI)
                 self.Lan_Status.pack(fill=BOTH, expand=1)
@@ -46,9 +46,20 @@ class Window(Frame):
                 PortScanner=Connection.PortScan()
                 Ports=PortScanner.Go()
                 
+                self.Frames=[]
+                
                 for x in range(len(Ports)):
-                    self.UpdateStatus(self.Lan_Servers, "Found server on port {}.".format(Ports[x]))
-                    button=Button(self.Lan_Servers
+                    #self.UpdateStatus(self.Lan_Servers, "Found server on port {}.".format(Ports[x]))
+                    frame=Frame(self.Lan_Servers)
+                    frame.pack()
+                    
+                    button=Button(frame, text="Join Port", command=lambda: self.JoinServer(Ports[x], "localhost"))
+                    button.pack(left)
+                    
+                    label=Label(frame, text="Port: {}               Host: {}".format(Port[x], "localhost"))
+                    label.pack()
+                    
+                    self.Frames.append(frame)
                     
                 self.UpdateStatus(self.Lan_Status, "Found {} servers.".format(len(Ports)))
 
@@ -60,6 +71,9 @@ class Window(Frame):
 
         def Start(self):
                 print("LOL")
+        
+        def JoinServer(self, port, host):
+            
 
 root=Tk()
 #root.resizable(False, False)
