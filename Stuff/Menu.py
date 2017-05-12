@@ -73,7 +73,13 @@ class Window(Frame):
                 print("LOL")
         
         def JoinServer(self, port, host):
-            Connection.Connect(Port=port, IP=host)
+            conn=Connection.Connect(Port=port, IP=host)
+            if conn.is_connected:
+                self.ChatGui()
+        
+        def ChatGui(self):
+            if not self.Mode==None:
+                
 
 root=Tk()
 #root.resizable(False, False)
