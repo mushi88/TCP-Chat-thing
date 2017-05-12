@@ -8,10 +8,10 @@ class Connect:
                 try:
                         self.sock.connect((IP,PORT))
                         self.is_connected=True
-                        return "Connected."
+                        self.stat="Connected."
                 except:
                         self.is_connected=False
-                        return "Failed to connect."
+                        self.stat="Failed to connect."
                         
         def Send(self,Value):
                 if type(Value)!=str:
