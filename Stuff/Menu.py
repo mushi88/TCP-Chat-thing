@@ -73,7 +73,7 @@ class Window(Frame):
                 print("LOL")
         
         def JoinServer(self, port, host):
-            
+            Connection.Connect(Port=port, IP=host)
 
 root=Tk()
 #root.resizable(False, False)
