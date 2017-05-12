@@ -8,10 +8,8 @@ class Connect:
                 try:
                         self.sock.connect((IP,PORT))
                         self.is_connected=True
-                        self.stat="Connected."
                 except:
                         self.is_connected=False
-                        self.stat="Failed to connect."
                         
         def Send(self,Value):
                 if type(Value)!=str:
@@ -24,7 +22,7 @@ class Connect:
                         Data=str(self.sock.recv(10240), "utf-8")
                         return Data
                 except:
-                        return "Failed to recieve data."
+                        return False
 	
 class PortScan:
         def __init__(self, HostIP="localhost"):
